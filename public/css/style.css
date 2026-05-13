@@ -5,23 +5,31 @@
     box-sizing: border-box;
 }
 
-/* Corpo da página */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #e7eef8;
     min-height: 100vh;
-    color: #333;
+    color: #2d3a4f;
     line-height: 1.6;
 }
 
-/* Container principal */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at top left, rgba(79, 99, 214, 0.16), transparent 24%),
+                radial-gradient(circle at bottom right, rgba(118, 75, 162, 0.14), transparent 28%);
+    pointer-events: none;
+    z-index: -1;
+}
+
 .container {
-    max-width: 1200px;
+    max-width: 1080px;
     margin: 40px auto;
-    background: #ffffff;
     padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 18px 35px rgba(45, 58, 79, 0.08);
     position: relative;
     overflow: hidden;
 }
@@ -32,142 +40,163 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    height: 5px;
-    background: linear-gradient(90deg, #667eea, #764ba2);
+    height: 6px;
+    background: linear-gradient(90deg, #4f63d6, #7b4db0);
 }
 
-/* Títulos */
 h1 {
-    color: #2c3e50;
-    margin-bottom: 30px;
+    color: #1f2d47;
+    margin-bottom: 22px;
     text-align: center;
-    font-size: 2.5em;
-    font-weight: 300;
-    position: relative;
+    font-size: 2.4rem;
+    font-weight: 600;
 }
 
 h1::after {
     content: '';
     display: block;
-    width: 60px;
-    height: 3px;
-    background: #667eea;
-    margin: 10px auto;
-    border-radius: 2px;
+    width: 70px;
+    height: 4px;
+    background: #4f63d6;
+    margin: 14px auto 0;
+    border-radius: 999px;
 }
 
-/* Botões */
-.btn, button {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+.btn,
+button {
+    background: #4f63d6;
+    color: #ffffff;
     border: none;
-    padding: 12px 25px;
-    border-radius: 25px;
+    padding: 12px 24px;
+    border-radius: 999px;
     text-decoration: none;
     cursor: pointer;
     font-size: 16px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    display: inline-block;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.btn:hover, button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+.btn:hover,
+button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 24px rgba(79, 99, 214, 0.18);
+    background: #3c53b6;
 }
 
-.btn:active, button:active {
-    transform: translateY(0);
+.btn.secondary {
+    background: #6b7280;
 }
 
-/* Formulários */
+.btn.secondary:hover {
+    background: #4b5563;
+}
+
+.btn + .btn {
+    margin-left: 12px;
+}
+
 form {
-    margin-top: 30px;
+    margin-top: 24px;
 }
 
-form input,
-form textarea {
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #384158;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+}
+
+input,
+textarea {
     width: 100%;
-    padding: 15px;
-    margin-bottom: 20px;
-    border: 2px solid #e1e8ed;
-    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 18px;
+    border: 1px solid #d8e0ea;
+    border-radius: 14px;
     font-size: 16px;
-    transition: border-color 0.3s ease;
-    background: #f8f9fa;
+    background: #f8fbff;
+    color: #1f2937;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-form input:focus,
-form textarea:focus {
+input:focus,
+textarea:focus {
     outline: none;
-    border-color: #667eea;
+    border-color: #4f63d6;
+    box-shadow: 0 0 0 4px rgba(79, 99, 214, 0.1);
     background: #ffffff;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
-form textarea {
+textarea {
+    min-height: 120px;
     resize: vertical;
-    min-height: 100px;
 }
 
-/* Tabelas */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 30px;
-    border-radius: 10px;
+    margin-top: 28px;
+    border-radius: 14px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 30px rgba(45, 58, 79, 0.08);
 }
 
-table th {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 15px;
+thead th {
+    background: #4f63d6;
+    color: #ffffff;
+    padding: 16px 18px;
     text-align: left;
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.05em;
+    font-size: 0.85rem;
 }
 
-table td {
-    padding: 15px;
-    border-bottom: 1px solid #e1e8ed;
+tbody td {
+    padding: 16px 18px;
+    border-bottom: 1px solid #e8edf5;
     background: #ffffff;
+    color: #384158;
 }
 
-table tr:nth-child(even) {
-    background: #f8f9fa;
+tbody tr:nth-child(even) {
+    background: #f7f9ff;
 }
 
-table tr:hover {
-    background: #e8f4fd;
-    transition: background-color 0.3s ease;
+tbody tr:hover {
+    background: #edf2ff;
 }
 
 table td a {
-    color: #667eea;
+    color: #4f63d6;
     text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
+    font-weight: 600;
 }
 
 table td a:hover {
-    color: #764ba2;
+    color: #3c53b6;
     text-decoration: underline;
 }
 
-/* Layout responsivo */
+.no-data {
+    padding: 24px;
+    text-align: center;
+    color: #556277;
+}
+
 @media (max-width: 768px) {
     .container {
         margin: 20px;
-        padding: 20px;
+        padding: 22px;
     }
 
     h1 {
-        font-size: 2em;
+        font-size: 2rem;
     }
 
     table {
@@ -176,32 +205,19 @@ table td a:hover {
 
     table th,
     table td {
-        padding: 10px;
+        padding: 12px 10px;
     }
 
-    .btn, button {
-        padding: 10px 20px;
-        font-size: 14px;
+    .btn,
+    button {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 18px;
+        font-size: 15px;
     }
-}
 
-/* Animações suaves */
-* {
-    transition: all 0.3s ease;
-}
-
-/* Estilos adicionais para melhor UX */
-.container > .btn {
-    margin-bottom: 20px;
-}
-
-/* Labels */
-label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: #2c3e50;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    .btn + .btn {
+        margin-left: 0;
+        margin-top: 12px;
+    }
 }

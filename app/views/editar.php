@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Editar Produto</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../../public/css/style.css">
 </head>
 <body>
 
@@ -11,7 +11,7 @@
 
     <h1>Editar Produto</h1>
 
-    <a href="../../public/index.php" class="btn" style="margin-bottom: 20px;">← Voltar à Lista</a>
+    <a href="../../public/index.php" class="btn secondary">← Voltar à Lista</a>
 
     <?php
     require_once '../../app/database/Conexao.php';
